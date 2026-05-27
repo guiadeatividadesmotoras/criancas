@@ -141,34 +141,26 @@ section { padding: 72px 0; }
 .btn-subtle:hover { background: var(--orange); color: #fff; }
 
 /* ─── VIDEO ──────────────────────────────── */
-/* Base: sem fundo preto, bordas arredondadas limpas */
 .video-frame {
-  position: relative;
-  padding-bottom: 56.25%;
+  width: 100%;
+  aspect-ratio: 16 / 9;
   border-radius: var(--r-lg);
   overflow: hidden;
-  background: transparent;  /* CORRIGIDO: era #000 — removido o fundo preto */
+  background: transparent;
   box-shadow: var(--s-xl);
+  margin: 0 auto 48px;
 }
 .video-frame iframe {
-  position: absolute;
-  inset: 0;
+  display: block;
   width: 100%;
   height: 100%;
   border: none;
-  border-radius: var(--r-lg);
 }
-
-/* Vídeo principal — ocupa toda a largura do container */
 .video-main {
   max-width: 100%;
-  margin: 0 auto 48px;
 }
-
-/* Vídeo de depoimento — um pouco menor, mas maior que antes */
 .video-sm {
-  max-width: 100%;       /* CORRIGIDO: era 700px — agora ocupa toda a largura */
-  margin: 0 auto 48px;
+  max-width: 100%;
 }
 
 /* ─── REVEAL ANIMATION ───────────────────── */
