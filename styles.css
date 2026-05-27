@@ -143,7 +143,7 @@ section { padding: 72px 0; }
 /* ─── VIDEO ──────────────────────────────── */
 .video-frame {
   width: 100vw;
-  height: 100vh;
+  height: 56.25vw; /* proporção 16:9 perfeita no celular */
   margin-left: calc(-1 * var(--pad-x));
   margin-right: calc(-1 * var(--pad-x));
   border-radius: 0;
@@ -151,7 +151,7 @@ section { padding: 72px 0; }
   background: transparent;
   box-shadow: none;
   border: none;
-  margin-bottom: 48px;
+  margin-bottom: 32px;
 }
 .video-frame iframe {
   display: block;
@@ -163,6 +163,20 @@ section { padding: 72px 0; }
 }
 .video-main { max-width: 100%; }
 .video-sm { max-width: 100%; }
+
+/* No desktop o vídeo fica limitado ao container */
+@media (min-width: 768px) {
+  .video-frame {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    margin-left: 0;
+    margin-right: 0;
+    border-radius: var(--r-lg);
+    box-shadow: var(--s-xl);
+    margin-bottom: 48px;
+  }
+}
 /* ─── REVEAL ANIMATION ───────────────────── */
 [data-reveal] { opacity: 0; transform: translateY(22px); transition: opacity .6s ease, transform .6s ease; }
 [data-reveal].is-visible { opacity: 1; transform: translateY(0); }
