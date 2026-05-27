@@ -138,37 +138,37 @@ section { padding: 48px 0; }
 }
 
 /* ─── VIDEO ──────────────────────────────── */
-/* Mobile: ocupa 100% da largura da tela, altura proporional 9:16 vertical
-   para vídeos gravados em celular (retrato), ou 56vw para paisagem */
 .video-frame {
+  position: relative;
+  left: 50%;
   width: 100vw;
-  height: 56vw;        /* proporção 16:9 landscape — ajuste para 177vw se for vertical */
-  margin-left: calc(-1 * var(--pad-x));
-  margin-right: calc(-1 * var(--pad-x));
+  margin-left: -50vw;
+  height: 56vw;
   border: none;
   border-radius: 0;
   box-shadow: none;
-  background: #000;
+  background: transparent;
   overflow: hidden;
   margin-bottom: 28px;
   display: block;
 }
 .video-frame iframe {
-  display: block;
+  position: absolute;
+  top: 0; left: 0;
   width: 100%;
   height: 100%;
   border: 0;
   outline: 0;
+  background: transparent;
 }
-
-/* Desktop: volta ao container com borda */
 @media (min-width: 768px) {
   .video-frame {
+    position: static;
+    left: auto;
     width: 100%;
     height: auto;
-    aspect-ratio: 16 / 9;
     margin-left: 0;
-    margin-right: 0;
+    aspect-ratio: 16 / 9;
     border-radius: var(--r-lg);
     box-shadow: var(--s-xl);
     margin-bottom: 40px;
@@ -291,7 +291,7 @@ section { padding: 48px 0; }
 /* ════════════════════════════════════════════
    VIDEO SECTION
 ════════════════════════════════════════════ */
-.video-section { background: var(--white); text-align: center; }
+.video-section { background: var(--white); text-align: center; overflow: hidden; }
 .video-section .container { padding-bottom: 0; }
 
 /* ════════════════════════════════════════════
@@ -441,7 +441,7 @@ section { padding: 48px 0; }
 /* ════════════════════════════════════════════
    TESTIMONIAL VIDEO
 ════════════════════════════════════════════ */
-.testimonial-video { background: var(--bg-warm); text-align: center; }
+.testimonial-video { background: var(--bg-warm); text-align: center; overflow: hidden; }
 .testi-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
 .testi-card {
   background: var(--white);
