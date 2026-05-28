@@ -143,7 +143,7 @@ section { padding: 48px 0; }
   left: 50%;
   width: 100vw;
   margin-left: -50vw;
-  height: 90vw;
+  height: 56vw;
   border: none;
   border-radius: 0;
   box-shadow: none;
@@ -729,31 +729,152 @@ section { padding: 48px 0; }
 @media (min-width: 600px) {
   :root { --pad-x: 20px; }
   section { padding: 64px 0; }
-  .hero { padding: 64px 0 52px; }
+
+  /* ── VIDEO: corrige no desktop ── */
+  .video-frame {
+    position: relative;
+    left: auto;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    margin-left: 0;
+    margin-right: 0;
+    border-radius: var(--r-lg);
+    box-shadow: var(--s-xl);
+    margin-bottom: 40px;
+    background: #000;
+    overflow: hidden;
+  }
+  .video-frame iframe {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* ── HERO ── */
+  .hero { padding: 72px 0 56px; overflow: hidden; }
   .hero-blob { display: block; }
-  .hero-img { border-radius: var(--r-xl); box-shadow: var(--s-xl); }
+  .hero-h1 { font-size: clamp(32px, 4.5vw, 56px); padding: 0; }
+  .hero-sub { font-size: 18px; }
+  .hero-img-wrap { max-width: 700px; margin: 0 auto 32px; }
+  .hero-img {
+    border-radius: var(--r-xl);
+    box-shadow: var(--s-xl);
+    object-fit: cover;
+    max-height: 420px;
+    width: 100%;
+    height: auto;
+  }
+  .hero-img-badge { width: 86px; height: 86px; bottom: -18px; right: 16px; }
+  .badge-num { font-size: 22px; }
+  .badge-txt { font-size: 10px; }
+  .hero-img-glow { display: block; }
+  .br-desk { display: block; }
+
+  /* ── TRUST PILLS ── */
+  .trust-pill { font-size: 13px; padding: 6px 14px; }
+  .trust-dot { width: 8px; height: 8px; }
+
+  /* ── HERO PILLS ── */
+  .hero-pill { font-size: 13px; padding: 8px 16px; }
+
+  /* ── LAYOUT GRIDS ── */
   .identify-grid { grid-template-columns: 1fr 1fr; }
   .problem-grid { grid-template-columns: 1fr 1fr; }
   .testi-grid { grid-template-columns: 1fr 1fr 1fr; }
   .benefits-grid { grid-template-columns: repeat(2, 1fr); }
+  .ben-card { padding: 24px 20px; }
+  .ben-icon { width: 52px; height: 52px; font-size: 24px; }
+  .ben-card h3 { font-size: 15px; }
+  .ben-card p { font-size: 13px; }
+
+  /* ── TRANSFORM ── */
   .transform-grid { flex-direction: row; align-items: stretch; }
-  .transform-card { flex: 1; }
+  .transform-card { flex: 1; padding: 28px 24px; }
+  .transform-card li { font-size: 15px; }
   .arrow-circle { transform: rotate(0deg); }
   .transform-arrow { flex-direction: column; justify-content: center; }
+
+  /* ── PRODUCT ── */
   .product-showcase { flex-direction: row; align-items: flex-start; gap: 40px; }
   .ps-image-wrap { flex: 0 0 42%; }
+  .ps-glow { display: block; }
+  .ps-image { max-height: 340px; object-fit: cover; }
+  .ps-badge-count { width: 86px; height: 86px; }
+  .ps-badge-count strong { font-size: 22px; }
+  .ps-badge-count span { font-size: 10px; }
+  .ps-feat { padding: 18px 20px; }
+  .ps-feat strong { font-size: 15px; }
+  .ps-feat p { font-size: 14px; }
+
+  /* ── IDENTIFY ── */
+  .id-card { padding: 20px 22px; }
+  .id-card p { font-size: 15px; }
+  .id-icon { font-size: 28px; }
+
+  /* ── PROBLEM ── */
+  .problem-card { padding: 28px 24px; }
+  .problem-card h3 { font-size: 17px; }
+  .problem-card p { font-size: 14px; }
+  .problem-icon { font-size: 32px; }
+
+  /* ── TESTIMONIALS ── */
+  .testi-card { padding: 24px 22px; }
+  .testi-card p { font-size: 14px; }
+  .testi-stars { font-size: 18px; }
+
+  /* ── URGENCY ── */
+  .urg-points { flex-direction: row; justify-content: center; gap: 14px; }
+  .urg-pt { flex: 1; text-align: center; }
+
+  /* ── CTA ── */
+  .cta-box { padding: 48px 40px; }
+  .cta-above { font-size: 15px; }
+  .cta-below { font-size: 13px; }
+  .btn-primary { font-size: 16px; }
+
+  /* ── OFFER ── */
+  .offer-includes li { font-size: 15px; }
+  .offer-guarantee strong { font-size: 15px; }
+  .offer-guarantee p { font-size: 13px; }
+
+  /* ── FINAL CTA ── */
   .fc-inner { flex-direction: row; align-items: center; gap: 48px; }
   .fc-text { text-align: left; }
   .fc-img { flex: 0 0 44%; max-height: 360px; }
+  .fc-text h2 { font-size: clamp(26px, 3.5vw, 40px); }
+  .fc-text p { font-size: 16px; }
+
+  /* ── SOCIAL PROOF ── */
   #sp-toast { display: block; }
   .sp-grid { grid-template-columns: repeat(4, 1fr); }
-  .urg-points { flex-direction: row; justify-content: center; gap: 14px; }
-  .urg-pt { flex: 1; text-align: center; }
+  .sp-num { font-size: 44px; }
+  .sp-label { font-size: 13px; }
+
+  /* ── SECTION TYPOGRAPHY ── */
+  .section-tag { font-size: 12px; padding: 6px 14px; }
+  .section-h2 { font-size: clamp(28px, 4.5vw, 46px); margin-bottom: 16px; }
+  .section-p { font-size: 17px; }
+
+  /* ── FAQ ── */
+  .faq-q { font-size: 15px; padding: 20px 22px; }
+  .faq-a p { font-size: 15px; }
 }
 
 @media (min-width: 768px) {
   .problem-grid { grid-template-columns: repeat(3, 1fr); }
   .benefits-grid { grid-template-columns: repeat(4, 1fr); }
-  .offer-box { padding: 56px 48px; }
-  .br-desk { display: block; }
+  .offer-box { padding: 56px 60px; }
+  .offer-h2 { font-size: clamp(26px, 4vw, 42px); }
+  .offer-price { font-size: 68px; }
+  .offer-price span { font-size: 32px; }
+  .urgency-box { padding: 52px 40px; }
+  .urgency-box h2 { font-size: clamp(24px, 3.5vw, 36px); }
+  .urgency-box p { font-size: 16px; }
+  .urg-pt { font-size: 14px; }
+}
+
+@media (min-width: 920px) {
+  .hero-h1 { font-size: 52px; }
 }
