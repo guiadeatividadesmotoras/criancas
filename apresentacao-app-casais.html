@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>[NOME DO APP] — Apresentação do Projeto</title>
+<meta name="description" content="Apresentação do projeto: app de assinatura para casais.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;900&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --noite:#150A10; --carta:#221219; --vinho:#7A1F3D; --vinho-2:#4A1226;
+  --pimenta:#FF3D5A; --rosa:#FFB3C0; --papel:#FFF3EE; --suave:#C9A3AE;
+  --brasa:#FFC24B; --linha:#3A2230;
+  --r:20px;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{background:var(--noite);color:var(--papel);font-family:'Instrument Sans',system-ui,sans-serif;font-size:16px;line-height:1.6}
+.disp{font-family:'Unbounded',sans-serif}
+.wrap{max-width:620px;margin:0 auto;padding:0 20px}
+section{padding:52px 0;border-bottom:1px solid var(--linha)}
+.cap{font-family:'Unbounded';font-size:.68rem;font-weight:700;letter-spacing:.22em;color:var(--pimenta);text-transform:uppercase;display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.cap::before{content:"";width:26px;height:2px;background:var(--pimenta);display:inline-block}
+h2{font-family:'Unbounded';font-weight:700;font-size:1.45rem;line-height:1.25;margin-bottom:14px}
+p.lead{color:var(--suave);font-size:1rem;margin-bottom:10px}
+p.lead b{color:var(--papel)}
+mark{background:none;color:var(--brasa);font-weight:700}
+
+/* CAPA */
+.capa{padding:68px 0 46px;text-align:left;border-bottom:1px solid var(--linha);position:relative;overflow:hidden}
+.capa::after{content:"🌶️";position:absolute;font-size:11rem;right:-30px;top:-20px;opacity:.07;transform:rotate(18deg)}
+.tagtop{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--rosa);border:1px solid var(--vinho);border-radius:999px;padding:7px 14px;margin-bottom:22px}
+.capa h1{font-family:'Unbounded';font-weight:900;font-size:2.3rem;line-height:1.08}
+.capa h1 em{font-style:normal;color:var(--pimenta)}
+.capa .sub{color:var(--suave);margin-top:16px;font-size:1.02rem;max-width:44ch}
+.stats{display:flex;gap:10px;margin-top:26px;flex-wrap:wrap}
+.stat{background:var(--carta);border:1px solid var(--linha);border-radius:14px;padding:12px 16px;flex:1;min-width:150px}
+.stat b{font-family:'Unbounded';font-size:1.15rem;color:var(--brasa);display:block}
+.stat span{font-size:.75rem;color:var(--suave);font-weight:600}
+
+/* CARDS GENÉRICOS */
+.card{background:var(--carta);border:1px solid var(--linha);border-radius:var(--r);padding:18px;margin-bottom:12px}
+.card h3{font-size:1.02rem;font-weight:700;margin-bottom:6px;display:flex;gap:8px;align-items:center}
+.card p{font-size:.92rem;color:var(--suave)}
+.card p b{color:var(--papel)}
+.num{font-family:'Unbounded';font-weight:700;font-size:.75rem;color:var(--pimenta);background:var(--vinho-2);border-radius:8px;padding:4px 9px}
+
+/* CAMADAS */
+.camada{display:flex;gap:14px;align-items:flex-start}
+.camada .ico{font-size:1.5rem;background:var(--vinho-2);border-radius:14px;width:52px;height:52px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+
+/* VITRINE DE TELAS */
+.vitrine{display:flex;gap:18px;overflow-x:auto;padding:10px 4px 22px;scroll-snap-type:x mandatory;scrollbar-width:none}
+.vitrine::-webkit-scrollbar{display:none}
+.tela{flex-shrink:0;scroll-snap-align:center;width:250px}
+.tela figcaption{text-align:center;font-size:.8rem;font-weight:600;color:var(--suave);margin-top:10px}
+.tela figcaption b{color:var(--papel);display:block;font-size:.86rem}
+.phone{width:250px;height:520px;background:#0B0508;border:3px solid #2E1A24;border-radius:36px;padding:14px 12px;position:relative;overflow:hidden;box-shadow:0 18px 40px rgba(0,0,0,.5)}
+.phone::before{content:"";position:absolute;top:9px;left:50%;transform:translateX(-50%);width:78px;height:16px;background:#000;border-radius:999px;border:1px solid #241019;z-index:5}
+.ui{height:100%;overflow:hidden;border-radius:24px;background:linear-gradient(180deg,#1A0C13,#120711);padding:30px 10px 10px;display:flex;flex-direction:column;gap:8px;font-size:.62rem}
+.ui-top{display:flex;justify-content:space-between;align-items:center;padding:0 2px}
+.ui-ava{width:22px;height:22px;border-radius:50%;background:var(--vinho);display:flex;align-items:center;justify-content:center;font-size:.6rem}
+.ui-prem{font-weight:700;font-size:.56rem;color:#331A00;background:linear-gradient(90deg,var(--brasa),#FFDB94);border-radius:999px;padding:4px 9px}
+.ui-h{font-family:'Unbounded';font-weight:700;font-size:.72rem;line-height:1.2}
+.ui-sub{color:var(--suave);font-size:.56rem}
+.ritual{background:linear-gradient(135deg,#5C1230,#2A0918);border:1px solid var(--pimenta);border-radius:14px;padding:10px;position:relative;overflow:hidden}
+.ritual::after{content:"🔥";position:absolute;right:-6px;bottom:-10px;font-size:2.6rem;opacity:.18}
+.ritual .rt{font-family:'Unbounded';font-weight:700;font-size:.66rem;color:var(--papel)}
+.ritual .rs{font-size:.52rem;color:var(--rosa);margin-top:2px}
+.ritual .cd{font-family:'Unbounded';font-weight:700;font-size:.78rem;color:var(--brasa);margin-top:6px;letter-spacing:.04em}
+.ritual .lock{position:absolute;top:8px;right:8px;font-size:.7rem}
+.gridui{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+.gcard{border-radius:12px;padding:9px 8px;min-height:64px;display:flex;flex-direction:column;justify-content:flex-end;gap:2px;background:linear-gradient(160deg,#6E1B38,#3A0E22);border:1px solid #4A1226}
+.gcard i{font-style:normal;font-size:1rem}
+.gcard b{font-size:.56rem;font-weight:700;line-height:1.15;text-transform:uppercase;letter-spacing:.02em}
+.streak{display:flex;align-items:center;gap:6px;background:#241219;border:1px solid var(--linha);border-radius:10px;padding:7px 9px;font-weight:700;font-size:.56rem;color:var(--rosa)}
+/* tela carta */
+.bigcard{flex:1;background:linear-gradient(160deg,#7A1F3D,#38091E);border-radius:16px;border:1px solid #93365380;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:16px;gap:10px}
+.bigcard .lvl{font-size:.52rem;font-weight:700;letter-spacing:.14em;color:var(--rosa);text-transform:uppercase}
+.bigcard .tx{font-family:'Unbounded';font-weight:700;font-size:.8rem;line-height:1.45}
+.uibtn{border-radius:10px;padding:9px;text-align:center;font-weight:700;font-size:.6rem}
+.uibtn.p{background:var(--pimenta);color:#fff}
+.uibtn.g{background:#241219;color:var(--suave);border:1px solid var(--linha)}
+/* tela match */
+.mrow{display:flex;align-items:center;justify-content:space-between;background:#241219;border:1px solid var(--linha);border-radius:11px;padding:8px 10px}
+.mrow span{font-size:.6rem;font-weight:600}
+.mrow .match{color:var(--brasa);font-weight:800;font-size:.56rem}
+.mhero{background:linear-gradient(135deg,#5C1230,#2A0918);border:1px solid var(--pimenta);border-radius:14px;padding:12px;text-align:center}
+.mhero b{font-family:'Unbounded';font-size:.9rem;color:var(--brasa)}
+.mhero div{font-size:.56rem;color:var(--rosa);margin-top:3px}
+/* paywall */
+.pw-h{text-align:center;padding:8px 4px 2px}
+.pw-h .pt{font-family:'Unbounded';font-weight:700;font-size:.78rem}
+.pw-li{display:flex;gap:7px;align-items:center;font-size:.58rem;font-weight:600;color:var(--suave)}
+.pw-li::before{content:"✓";color:var(--brasa);font-weight:800}
+.pw-price{text-align:center;padding:8px 0 2px}
+.pw-price b{font-family:'Unbounded';font-size:1.15rem;color:var(--papel)}
+.pw-price span{font-size:.56rem;color:var(--suave);display:block}
+
+/* TABELA COMPARATIVA */
+.tab{width:100%;border-collapse:collapse;font-size:.85rem;margin-top:8px}
+.tab th{font-family:'Unbounded';font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:var(--suave);text-align:left;padding:10px 8px;border-bottom:1px solid var(--linha)}
+.tab td{padding:11px 8px;border-bottom:1px solid var(--linha);vertical-align:top}
+.tab td:first-child{color:var(--suave);font-weight:600;font-size:.82rem}
+.no{color:#8A5C6B}.yes{color:var(--brasa);font-weight:700}
+
+/* EVENTOS CHIPS */
+.evgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:6px}
+.ev{background:var(--carta);border:1px solid var(--linha);border-radius:14px;padding:12px}
+.ev b{font-size:.85rem;display:block}
+.ev span{font-size:.72rem;color:var(--suave)}
+.ev .wk{font-family:'Unbounded';font-size:.58rem;color:var(--pimenta);letter-spacing:.1em}
+
+/* FLUXO */
+.fluxo{display:flex;flex-direction:column;gap:0;margin-top:6px}
+.passo{display:flex;gap:14px;position:relative;padding-bottom:22px}
+.passo::before{content:"";position:absolute;left:15px;top:34px;bottom:0;width:2px;background:var(--linha)}
+.passo:last-child::before{display:none}
+.pnum{width:32px;height:32px;border-radius:50%;background:var(--vinho-2);border:1px solid var(--vinho);color:var(--rosa);font-family:'Unbounded';font-weight:700;font-size:.72rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;position:relative;z-index:2}
+.passo.done .pnum{background:var(--brasa);border-color:var(--brasa);color:#331A00}
+.passo h3{font-size:.95rem;font-weight:700}
+.passo p{font-size:.85rem;color:var(--suave)}
+
+.aviso{background:linear-gradient(135deg,#2A1A08,#241205);border:1px solid #6B4A12;border-radius:var(--r);padding:16px}
+.aviso h3{color:var(--brasa);font-size:.95rem;margin-bottom:6px}
+.aviso p{font-size:.88rem;color:#D9BE8C}
+
+footer{padding:36px 0 60px;text-align:center;color:var(--suave);font-size:.78rem}
+footer b{color:var(--papel)}
+@media(max-width:400px){.capa h1{font-size:1.9rem}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<!-- CAPA -->
+<header class="capa">
+  <div class="wrap">
+    <span class="tagtop">Apresentação do projeto · Confidencial</span>
+    <h1>[NOME DO APP]<br>O app que transforma o <em>fim de semana</em> do casal.</h1>
+    <p class="sub">Assinatura mensal para casais que querem sair da rotina — com jogos sempre disponíveis e <b style="color:var(--papel)">um evento novo toda semana</b> que faz o assinante voltar.</p>
+    <div class="stats">
+      <div class="stat"><b>R$ 19,90</b><span>por mês, checkout próprio</span></div>
+      <div class="stat"><b>1.000</b><span>assinantes = meta inicial</span></div>
+      <div class="stat"><b>R$ 19,9 mil</b><span>de receita recorrente/mês</span></div>
+    </div>
+  </div>
+</header>
+
+<!-- 1. OPORTUNIDADE -->
+<section>
+  <div class="wrap">
+    <div class="cap">Capítulo 1 · A oportunidade</div>
+    <h2>O mercado existe. Os concorrentes são fracos.</h2>
+    <p class="lead">Lá fora, apps de casal por assinatura já são categoria consolidada (Paired e similares cobram ~US$ 10/mês). No Brasil, o nicho tem concorrentes — mas todos com a <b>mesma fraqueza</b>:</p>
+    <div class="card"><h3>🃏 Eles são um "baralho digital parado"</h3><p>O usuário baixa, joga 3 noites, enjoa e cancela. Nenhum deles dá um <b>motivo pra voltar toda semana</b>. É exatamente essa a brecha que o nosso produto ataca.</p></div>
+    <div class="card"><h3>📵 Ninguém consegue anunciar direito</h3><p>O Meta restringe anúncios de conteúdo adulto. Por isso quase não se vê anúncio desses apps. Nossa vantagem: sabemos rodar tráfego posicionando como <b>"jogos de conexão para casais"</b> — que passa na moderação — e entregar a pimenta dentro do produto.</p></div>
+    <div class="card"><h3>💳 Casal é público pagante</h3><p>Já gasta com jantar, motel e presente pra "sair da rotina". R$ 19,90/mês é a compra mais barata dessa categoria de desejo.</p></div>
+  </div>
+</section>
+
+<!-- 2. COMO FUNCIONA -->
+<section>
+  <div class="wrap">
+    <div class="cap">Capítulo 2 · O produto</div>
+    <h2>Três camadas: uso livre, evento semanal e temporada.</h2>
+    <div class="card camada"><span class="ico">🎴</span><div><h3>Acervo livre — sempre disponível</h3><p>Modos de Perguntas e Desafios em 3 níveis (<b>Leve → Romântico → Picante</b>), com centenas de cartas. O casal usa quando e quanto quiser. É o que segura o uso no dia a dia.</p></div></div>
+    <div class="card camada" style="border-color:var(--pimenta)"><span class="ico">🔥</span><div><h3>O Ritual — só de sexta a domingo</h3><p>Um jogo temático <b>novo e único toda semana</b>, liberado sexta 20h e encerrado domingo 23h59. Acabou, sumiu — semana que vem é outro. É a máquina de curiosidade e o principal motivo pra <b>não cancelar</b>.</p></div></div>
+    <div class="card camada"><span class="ico">📅</span><div><h3>Temporadas mensais — fase 2</h3><p>Cada mês um tema novo. Cancelar no fim do mês = perder a temporada que começa. Ataca o churn exatamente no ciclo de cobrança.</p></div></div>
+  </div>
+</section>
+
+<!-- 3. TELAS -->
+<section>
+  <div class="wrap">
+    <div class="cap">Capítulo 3 · Como fica na prática</div>
+    <h2>As telas do aplicativo.</h2>
+    <p class="lead">Arraste para o lado 👉 — o countdown do Ritual abaixo está <b>rodando de verdade</b> até a próxima sexta 20h.</p>
+  </div>
+  <div class="wrap" style="max-width:100%;padding:0 12px">
+    <div class="vitrine">
+
+      <figure class="tela">
+        <div class="phone"><div class="ui">
+          <div class="ui-top"><span class="ui-ava">👤</span><span class="ui-prem">✨ Premium ativo</span><span>⚙️</span></div>
+          <div><div class="ui-h">Boa noite, casal 😏</div><div class="ui-sub">O que vai ser hoje?</div></div>
+          <div class="ritual"><span class="lock">🔒</span><div class="rt">O RITUAL</div><div class="rs">Semana 12 · "Baralho Proibido"</div><div class="cd" id="cdown">--d --h --m --s</div><div class="rs">abre sexta às 20h</div></div>
+          <div class="gridui">
+            <div class="gcard"><i>🎡</i><b>Sex Roleta</b></div>
+            <div class="gcard"><i>❓</i><b>Verdade ou Desafio</b></div>
+            <div class="gcard"><i>🎭</i><b>Roleplay</b></div>
+            <div class="gcard"><i>💘</i><b>Sim, Não, Talvez</b></div>
+            <div class="gcard"><i>✈️</i><b>Modo Distância</b></div>
+            <div class="gcard"><i>🌡️</i><b>Nível de Safadeza</b></div>
+          </div>
+          <div class="streak">🔥 3 fins de semana seguidos — recorde de vocês!</div>
+        </div></div>
+        <figcaption><b>Home</b>Grade de modos + O Ritual com countdown</figcaption>
+      </figure>
+
+      <figure class="tela">
+        <div class="phone"><div class="ui">
+          <div class="ui-top"><span>‹ voltar</span><span class="ui-prem" style="background:var(--vinho);color:var(--rosa)">🔥 O RITUAL</span><span></span></div>
+          <div><div class="ui-h">Roleta da Verdade</div><div class="ui-sub">Rodada 4 de 10 · o nível sobe a cada giro</div></div>
+          <div class="bigcard"><div class="lvl">Nível · Picante</div><div class="tx">"Descreva, sem pressa, o momento mais inesquecível de vocês dois..."</div><div style="font-size:1.4rem">🌶️🌶️🌶️</div></div>
+          <div class="uibtn p">Cumprimos! Girar de novo 🎡</div>
+          <div class="uibtn g">Passar (paga prenda 😈)</div>
+        </div></div>
+        <figcaption><b>O Ritual</b>O evento da semana em andamento</figcaption>
+      </figure>
+
+      <figure class="tela">
+        <div class="phone"><div class="ui">
+          <div class="ui-top"><span>‹ voltar</span><span class="ui-prem" style="background:var(--vinho);color:var(--rosa)">💘 Sim, Não, Talvez</span><span></span></div>
+          <div><div class="ui-h">Deu match!</div><div class="ui-sub">Cada um respondeu em segredo no próprio celular. Só os "sim" dos dois aparecem:</div></div>
+          <div class="mhero"><b>7 desejos em comum</b><div>que vocês nunca tinham falado em voz alta 👀</div></div>
+          <div class="mrow"><span>Massagem com venda</span><span class="match">SIM ✕ SIM</span></div>
+          <div class="mrow"><span>Roleplay: desconhecidos no bar</span><span class="match">SIM ✕ SIM</span></div>
+          <div class="mrow"><span>Fim de semana sem celular</span><span class="match">SIM ✕ SIM</span></div>
+          <div class="mrow" style="opacity:.45"><span>••••••••••</span><span class="match">🔒</span></div>
+          <div class="uibtn p">Ver os 7 matches 🔥</div>
+        </div></div>
+        <figcaption><b>Sim, Não, Talvez</b>Descoberta sem constrangimento — só com 2 celulares</figcaption>
+      </figure>
+
+      <figure class="tela">
+        <div class="phone"><div class="ui">
+          <div class="ui-top"><span>✕</span><span></span><span></span></div>
+          <div class="pw-h"><div style="font-size:1.6rem">🔥</div><div class="pt">O Ritual dessa semana já tem nome...</div><div class="ui-sub" style="margin-top:4px">"Caça ao Tesouro" · abre sexta 20h</div></div>
+          <div class="pw-li">O Ritual: um jogo novo toda semana</div>
+          <div class="pw-li">Níveis Romântico e Picante completos</div>
+          <div class="pw-li">Sim, Não, Talvez + Modo Distância</div>
+          <div class="pw-li">Privacidade total: dados só de vocês</div>
+          <div class="pw-price"><b>R$ 19,90/mês</b><span>menos que uma pizza. Cancela quando quiser.</span></div>
+          <div class="uibtn p">Desbloquear agora</div>
+          <div class="uibtn g">Continuar no modo grátis</div>
+        </div></div>
+        <figcaption><b>Assinatura</b>O evento com cadeado é o gatilho de conversão</figcaption>
+      </figure>
+
+    </div>
+  </div>
+</section>
+
+<!-- 4. O RITUAL -->
+<section>
+  <div class="wrap">
+    <div class="cap">Capítulo 4 · O motor de retenção</div>
+    <h2>O Ritual: por que o assinante não cancela.</h2>
+    <p class="lead">Toda semana o app planta a mesma pergunta na cabeça do casal: <mark>"qual será o da semana que vem?"</mark></p>
+    <div class="card"><h3>⏰ A janela</h3><p><b>Sexta 20h → domingo 23h59.</b> Fora dela, o card fica com cadeado e countdown. Quarta-feira o app solta o teaser só com o nome enigmático do próximo evento.</p></div>
+    <div class="card"><h3>🚫 Acabou, sumiu</h3><p>Evento encerrado <b>não volta pro acervo</b>. A perda precisa ser real — é ela que faz o casal reservar a sexta pro app.</p></div>
+    <p class="lead" style="margin-top:18px">Os 8 primeiros fins de semana já estão planejados:</p>
+    <div class="evgrid">
+      <div class="ev"><span class="wk">SEMANA 1</span><b>Roleta da Verdade</b><span>perguntas que escalam a cada giro</span></div>
+      <div class="ev"><span class="wk">SEMANA 2</span><b>Cassino do Casal</b><span>apostas pagas em prendas</span></div>
+      <div class="ev"><span class="wk">SEMANA 3</span><b>Caça ao Tesouro</b><span>pistas escondidas pela casa</span></div>
+      <div class="ev"><span class="wk">SEMANA 4</span><b>Sim, Não, Talvez</b><span>desejos revelados só no match</span></div>
+      <div class="ev"><span class="wk">SEMANA 5</span><b>Noite dos Dados</b><span>ação + lugar sorteados</span></div>
+      <div class="ev"><span class="wk">SEMANA 6</span><b>Modo Reconquista</b><span>o primeiro encontro, de novo</span></div>
+      <div class="ev"><span class="wk">SEMANA 7</span><b>5 Sentidos</b><span>uma rodada por sentido</span></div>
+      <div class="ev"><span class="wk">SEMANA 8</span><b>Baralho Proibido</b><span>cada carta sobe um nível</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. DIFERENCIAIS -->
+<section>
+  <div class="wrap">
+    <div class="cap">Capítulo 5 · Por que ganhamos</div>
+    <h2>Concorrentes × nosso app.</h2>
+    <table class="tab">
+      <tr><th></th><th>Apps atuais</th><th>[NOME DO APP]</th></tr>
+      <tr><td>Conteúdo novo</td><td class="no">acervo parado</td><td class="yes">evento novo toda semana</td></tr>
+      <tr><td>Uso do casal</td><td class="no">1 celular ("passa o telefone")</td><td class="yes">conta pareada, 2 celulares</td></tr>
+      <tr><td>Falar de desejos</td><td class="no">constrangimento ao vivo</td><td class="yes">Sim, Não, Talvez em segredo</td></tr>
+      <tr><td>Casal à distância</td><td class="no">nada</td><td class="yes">Modo Distância</td></tr>
+      <tr><td>Progresso</td><td class="no">quiz que morre</td><td class="yes">Nível de Safadeza como jornada + streak</td></tr>
+      <tr><td>Taxa da loja</td><td class="no">até 30% pra Apple/Google</td><td class="yes">0% — PWA + checkout próprio</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 6. MODELO DE NEGÓCIO -->
+<section>
+  <div class="wrap">
+    <div class="cap">Capítulo 6 · Como ganhamos dinheiro</div>
+    <h2>Freemium com o evento como isca.</h2>
+    <div class="card"><h3>🆓 Grátis pra sempre</h3><p>Modo Leve do acervo. O usuário grátis vê toda semana o card d'O Ritual <b>com cadeado, nome e countdown</b> — algo concreto que ele está perdendo agora.</p></div>
+    <div class="card"><h3>💎 Premium — R$ 19,90/mês</h3><p>Desbloqueia O Ritual, os níveis Romântico e Picante, Sim Não Talvez e Modo Distância. Cobrança via <b>checkout web próprio [GATEWAY]</b>: sem taxa de loja, sem revisão de conteúdo, no ar em semanas.</p></div>
+    <div class="card"><h3>📈 Depois da validação</h3><p>Plano anual [R$ 149–179] pra ancorar o mensal e melhorar o caixa; empacotar para as lojas como canal extra na V2.</p></div>
+    <div class="aviso"><h3>⚠️ Regra de ouro do tráfego</h3><p>Os anúncios NUNCA usam a estética picante. Vendemos "jogos de conexão pro casal + um evento novo toda semana" — que passa na moderação do Meta. A pimenta é descoberta dentro do app. Isso protege nossas contas de anúncio.</p></div>
+  </div>
+</section>
+
+<!-- 7. PRIVACIDADE -->
+<section>
+  <div class="wrap">
+    <div class="cap">Capítulo 7 · Confiança</div>
+    <h2>Privacidade é argumento de venda.</h2>
+    <p class="lead">Num app íntimo, vazamento = morte do produto. Por isso:</p>
+    <div class="card"><h3>🔐 Coleta mínima</h3><p>Só apelido e e-mail. Sem nome completo, sem foto obrigatória. Botão real de "apagar tudo" (LGPD).</p></div>
+    <div class="card"><h3>🛡️ Arquitetura segura</h3><p>Banco com regras de acesso por casal (RLS em todas as tabelas), chaves secretas só no servidor, assinatura validada no backend. E a promessa na página de vendas: <b>"o que acontece no app, fica entre vocês dois."</b></p></div>
+  </div>
+</section>
+
+<!-- 8. PLANO -->
+<section>
+  <div class="wrap">
+    <div class="cap">Capítulo 8 · Execução</div>
+    <h2>Onde estamos e o que falta.</h2>
+    <div class="fluxo">
+      <div class="passo done"><span class="pnum">✓</span><div><h3>Especificação completa</h3><p>Telas, regras de liberação, modelo de dados, calendário de conteúdo e notificações — documento pronto.</p></div></div>
+      <div class="passo"><span class="pnum">2</span><div><h3>Protótipo navegável</h3><p>Telas clicáveis no celular pra validar o fluxo antes de programar. Prazo: [X dias].</p></div></div>
+      <div class="passo"><span class="pnum">3</span><div><h3>MVP — 6 telas</h3><p>Cadastro + pareamento do casal, home, jogo livre, O Ritual, perfil e assinatura. Stack: Next.js + Supabase + checkout [GATEWAY]. Prazo: [X semanas].</p></div></div>
+      <div class="passo"><span class="pnum">4</span><div><h3>Conteúdo de lançamento</h3><p>150 cartas de perguntas + 90 desafios + 8 eventos d'O Ritual prontos (2 meses de novidade garantida).</p></div></div>
+      <div class="passo"><span class="pnum">5</span><div><h3>Tráfego e validação</h3><p>Meta Ads com posicionamento "conexão". Métricas-chave: % de casais pareados no cadastro, % que joga O Ritual (meta &gt;60%), churn &lt;15%/mês.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    Projeto <b>[NOME DO APP]</b> · Documento interno para sócios<br>
+    [SUA MARCA / G.D TECH SOLUTIONS] · Julho de 2026
+  </div>
+</footer>
+
+<script>
+(function(){
+  const el=document.getElementById("cdown");
+  function nextFriday20(){
+    const n=new Date();
+    const d=new Date(n);
+    const day=n.getDay(); // 5 = sexta
+    let add=(5-day+7)%7;
+    d.setDate(n.getDate()+add);
+    d.setHours(20,0,0,0);
+    if(d<=n){ // já passou sexta 20h desta semana? se ainda é fds, mostra próximo
+      d.setDate(d.getDate()+7);
+    }
+    return d;
+  }
+  const alvo=nextFriday20();
+  function tick(){
+    let s=Math.max(0,Math.floor((alvo-new Date())/1000));
+    const dd=Math.floor(s/86400);s%=86400;
+    const hh=Math.floor(s/3600);s%=3600;
+    const mm=Math.floor(s/60);const ss=s%60;
+    el.textContent=`${dd}d ${String(hh).padStart(2,"0")}h ${String(mm).padStart(2,"0")}m ${String(ss).padStart(2,"0")}s`;
+  }
+  tick();setInterval(tick,1000);
+})();
+</script>
+</body>
+</html>
